@@ -1,0 +1,43 @@
+<div class="address-form-container">
+    <h2>Add Address Details</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="customerName">Customer Name</label>
+        <input type="text" id="customerName" [(ngModel)]="addressDetails.customerName" name="customerName" required />
+      </div>
+  
+      <div>
+        <label for="panNumber">PAN Number</label>
+        <input type="text" id="panNumber" [(ngModel)]="addressDetails.panNumber" name="panNumber" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}" required />
+        <div class="error-message" *ngIf="!addressDetails.panNumber">PAN is required and must be in the correct format.</div>
+      </div>
+  
+      <div>
+        <label for="aadhaarNumber">Aadhaar Number</label>
+        <input type="text" id="aadhaarNumber" [(ngModel)]="addressDetails.aadhaarNumber" name="aadhaarNumber" pattern="\d{12}" required />
+        <div class="error-message" *ngIf="!addressDetails.aadhaarNumber">Aadhaar number must be 12 digits.</div>
+      </div>
+  
+      <div>
+        <label for="city">City</label>
+        <input type="text" id="city" [(ngModel)]="addressDetails.city" name="city" required />
+      </div>
+  
+      <div>
+        <label for="pinCode">Pin Code</label>
+        <input type="text" id="pinCode" [(ngModel)]="addressDetails.pinCode" name="pinCode" pattern="\d{6}" required />
+        <div class="error-message" *ngIf="!addressDetails.pinCode">Pin code must be 6 digits.</div>
+      </div>
+  
+      <div>
+        <label for="status">Status</label>
+        <select id="status" [(ngModel)]="addressDetails.status" name="status" required>
+          <option value="ACTIVE">Active</option>
+          <option value="INACTIVE">Inactive</option>
+        </select>
+      </div>
+  
+      <button type="submit" [disabled]="!addressDetails.customerName || !addressDetails.panNumber || !addressDetails.aadhaarNumber || !addressDetails.city || !addressDetails.pinCode || !addressDetails.status">Submit</button>
+    </form>
+  </div>
+  

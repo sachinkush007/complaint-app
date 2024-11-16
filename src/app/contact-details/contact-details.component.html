@@ -1,0 +1,29 @@
+<div class="contact-form-container">
+    <h2>Add Contact Details</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div>
+        <label for="contact">Contact</label>
+        <input type="text" id="contact" [(ngModel)]="contactDetails.contact" name="contact" required />
+        <div class="error-message" *ngIf="!contactDetails.contact">Contact is required.</div>
+      </div>
+  
+      <div>
+        <label for="contactType">Contact Type</label>
+        <select id="contactType" [(ngModel)]="contactDetails.contactType" name="contactType" required>
+          <option value="Mobile">Mobile</option>
+          <option value="Email">Email</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="status">Status</label>
+        <select id="status" [(ngModel)]="contactDetails.status" name="status" required>
+          <option value="ACTIVE">Active</option>
+          <option value="INACTIVE">Inactive</option>
+        </select>
+      </div>
+  
+      <button type="submit" [disabled]="!contactDetails.contact || !contactDetails.contactType || !contactDetails.status">Submit</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,25 @@
+<div class="ticket-container">
+    <h2>Complaints List</h2>
+    <li><a routerLink="/add-address" routerLinkActive="active">Add Address</a></li>
+    <li><a routerLink="/add-contact" routerLinkActive="active">Add Contact</a></li>
+    <table>
+      <thead>
+        <tr>
+          <th>Ticket No</th>
+          <th>Project Name</th>
+          <th>Module Name</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets">
+          <td>{{ ticket.ticketNo }}</td>
+          <td>{{ ticket.projectName }}</td>
+          <td>{{ ticket.moduleName }}</td>
+          <td>{{ ticket.status }}</td>
+        </tr>
+      </tbody>
+    </table>
+    
+  </div>
+  <router-outlet></router-outlet>
